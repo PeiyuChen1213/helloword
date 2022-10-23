@@ -1,0 +1,21 @@
+server:
+  port: 80
+
+#在springBoot下配置druid数据源
+spring:
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/ssm_db
+      username: root
+      password: 1234
+
+#由于mybatis—plus 默认生成的算法是雪花算法，一般生成的主键都很大
+#所以，要更改mybatis-plus主键的生成策略
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: auto
+      table-prefix: tbl_ #设置表名的通用前缀
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #设置标准输出格式的日志
